@@ -5,6 +5,7 @@ const productSchema = new mongoose.Schema({
     description: {type: String},
     stock: { type: Number, required: true},
     stock_alert: { type: Number, required: true},
+    category: { type: mongoose.Schema.Types.ObjectId, ref: 'category', required: true }
 });
 
 
