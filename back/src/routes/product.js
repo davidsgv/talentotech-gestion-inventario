@@ -9,6 +9,6 @@ router.get("/:id", permissionMiddleware('get_product'), controller.GetProductByI
 router.put("/:id", permissionMiddleware('update_product'), controller.UpdateProduct);
 router.delete("/:id", permissionMiddleware('delete_product'), controller.DeleteProduct);
 
-router.get("/:id/history", permissionMiddleware('update_product'), controller.GetProductHistoryById);
+router.get("/:id/history", permissionMiddleware('get_product'), controller.GetProductHistoryById);
 
 module.exports = router;
