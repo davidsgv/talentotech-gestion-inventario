@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import './AuthForm.css'; // Importar el archivo CSS para los estilos
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -56,47 +56,49 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Registro</h2>
+    <div className="register-container">
+      <form onSubmit={handleSubmit} className="register-form">
+        <h2>Registro</h2>
 
-      {/* Mostrar mensaje de éxito o error */}
-      {message && (
-        <div style={{ color: isError ? 'red' : 'green' }}>
-          {message}
+        {/* Mostrar mensaje de éxito o error */}
+        {message && (
+          <div className={`message ${isError ? 'error' : 'success'}`}>
+            {message}
+          </div>
+        )}
+
+        <div className="form-group">
+          <label>Username:</label>
+          <input 
+            type="text" 
+            name="username" 
+            value={values.username} 
+            onChange={handleChange} 
+            required
+          />
         </div>
-      )}
-
-      <div>
-        <label>Username:</label>
-        <input 
-          type="text" 
-          name="username" 
-          value={values.username} 
-          onChange={handleChange} 
-          required
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input 
-          type="password" 
-          name="password" 
-          value={values.password} 
-          onChange={handleChange} 
-          required
-        />
-      </div>
-      <div>
-        <label>Role:</label>
-        <input 
-          type="text" 
-          name="role" 
-          value={values.role} 
-          onChange={handleChange} 
-        />
-      </div>
-      <button type="submit">Registrarse</button>
-    </form>
+        <div className="form-group">
+          <label>Password:</label>
+          <input 
+            type="password" 
+            name="password" 
+            value={values.password} 
+            onChange={handleChange} 
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Role:</label>
+          <input 
+            type="text" 
+            name="role" 
+            value={values.role} 
+            onChange={handleChange} 
+          />
+        </div>
+        <button type="submit" className="submit-button">Registrarse</button>
+      </form>
+    </div>
   );
 };
 
