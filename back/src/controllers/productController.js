@@ -3,8 +3,8 @@ const History = require("../models/stockHistory")
 const Category = require("../models/category")
 const sendMail = require("../helper/mail")
 
-//const htmlPath = require("path").join(process.env.HTML_FOLDER, "stock.html");
-//const fs = require('fs').promises;
+const htmlPath = require("path").join(process.env.HTML_FOLDER, "stock.html");
+const fs = require('fs').promises;
 
 
 exports.CreateProduct = async (req, res) => {
