@@ -9,7 +9,7 @@ const saveToken = (token) => {
 };
 
 // Función para obtener el token desde localStorage
-const getToken = () => {
+export const getToken = () => {
     return localStorage.getItem('authToken');
 };
 
