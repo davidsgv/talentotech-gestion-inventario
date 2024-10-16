@@ -16,7 +16,7 @@ exports.registrarUsuario = async (req, res) => {
             role: await getRole(role)
         });
 
-        // Guardar el usuario en la base de datos
+        
         await nuevoUsuario.save();
 
         const token = jwt.sign({ id: nuevoUsuario._id }, "secretKey", { expiresIn: "1h" });
