@@ -18,7 +18,7 @@ exports.registrarUsuario = async (req, res) => {
             permissions: permissions || []  // Asignar permisos, por defecto []
         });
 
-        // Guardar el usuario en la base de datos
+        
         await nuevoUsuario.save();
 
         const token = jwt.sign({ id: nuevoUsuario._id }, "secretKey", { expiresIn: "1h" });
